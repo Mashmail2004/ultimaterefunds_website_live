@@ -2,13 +2,13 @@
 	<service>
 		<engineName>WordPress</engineName>
 		<engineLink>https://wordpress.org/</engineLink>
-		<homePageLink>https://ultimaterefunds.com.au</homePageLink>
+		<homePageLink>https://ultimaterefunds.online</homePageLink>
 		<apis>
-			<api name="WordPress" blogID="1" preferred="true" apiLink="https://ultimaterefunds.com.au/xmlrpc.php" />
-			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://ultimaterefunds.com.au/xmlrpc.php" />
-			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://ultimaterefunds.com.au/xmlrpc.php" />
-			<api name="Blogger" blogID="1" preferred="false" apiLink="https://ultimaterefunds.com.au/xmlrpc.php" />
-				<api name="WP-API" blogID="1" preferred="false" apiLink="https://ultimaterefunds.com.au/wp-json/" />
+			<api name="WordPress" blogID="1" preferred="true" apiLink="https://ultimaterefunds.online/xmlrpc.php" />
+			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://ultimaterefunds.online/xmlrpc.php" />
+			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://ultimaterefunds.online/xmlrpc.php" />
+			<api name="Blogger" blogID="1" preferred="false" apiLink="https://ultimaterefunds.online/xmlrpc.php" />
+				<api name="WP-API" blogID="1" preferred="false" apiLink="https://ultimaterefunds.online/wp-json/" />
 			</apis>
 	</service>
 </rsd>
