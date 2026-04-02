@@ -1,143 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Terms & Conditions | Ultimate Refunds</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #1a2a4a;
-    --gold: #c9a84c;
-    --white: #ffffff;
-    --offwhite: #f4f4f4;
-    --text: #333;
-    --text-light: #666;
-    --border: #ddd;
-    --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-  body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions | Ultimate Refunds</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2a4a;
+      --gold: #c9a84c;
+      --white: #ffffff;
+      --offwhite: #f4f4f4;
+      --text: #333;
+      --text-light: #666;
+      --border: #ddd;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
 
-  /* ── NAV ── */
-  nav {
-    background: var(--navy); padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 76px; position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.20);
-  }
-  nav .logo img { height: 52px; display: block; }
-  nav ul { list-style: none; display: flex; gap: 4px; }
-  nav ul li a {
-    color: var(--white); text-decoration: none;
-    font-size: 0.9rem; font-weight: 600; padding: 8px 16px;
-    border-radius: 3px; transition: background 0.18s; letter-spacing: 0.02em;
-  }
-  nav ul li a:hover { background: rgba(255,255,255,0.12); }
-  nav ul li a.active { background: var(--gold); color: var(--navy); }
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
-  .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--white); border-radius: 2px; }
+    /* ── NAV — white, matching homepage ── */
+    nav {
+      background: var(--white);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    nav .logo img { height: 52px; display: block; }
+    nav ul { list-style: none; display: flex; gap: 4px; }
+    nav ul li a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 3px;
+      transition: background 0.18s;
+      letter-spacing: 0.02em;
+    }
+    nav ul li a:hover { background: rgba(26,42,74,0.08); }
+    nav ul li a.active { background: var(--gold); color: var(--navy); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
 
-  /* ── HERO BANNER with photo ── */
-  .hero {
-    position: relative; height: 220px; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/5-used.jpg') center center / cover no-repeat;
-    transform: scale(1.05);
-  }
-  .hero-overlay { position: absolute; inset: 0; background: rgba(20,35,65,0.55); }
-  .hero h1 {
-    position: relative; z-index: 1; color: var(--white);
-    font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  }
+    /* ── HERO BANNER — different image from homepage ── */
+    .hero {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/2-used.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+    }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(20,35,65,0.55); }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
 
-  /* ── PAGE CONTENT ── */
-  .page-wrap { max-width: 900px; margin: 0 auto; padding: 36px 24px 80px; }
+    /* ── PAGE CONTENT ── */
+    .page-wrap { max-width: 900px; margin: 0 auto; padding: 36px 24px 80px; }
 
-  /* ── TABS ── */
-  .tab-nav { display: flex; border-bottom: 3px solid var(--navy); }
-  .tab-btn {
-    flex: 1; background: #dde2ea; border: none;
-    padding: 15px 24px; font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--navy); cursor: pointer;
-    transition: background 0.2s, color 0.2s; position: relative; top: 3px; outline: none;
-  }
-  .tab-btn:first-child { border-radius: 6px 0 0 0; }
-  .tab-btn:last-child  { border-radius: 0 6px 0 0; }
-  .tab-btn:hover { background: #c8d0dc; }
-  .tab-btn.active { background: var(--navy); color: var(--white); border-top: 3px solid var(--gold); }
+    /* ── TABS ── */
+    .tab-nav { display: flex; border-bottom: 3px solid var(--navy); }
+    .tab-btn {
+      flex: 1;
+      background: #dde2ea;
+      border: none;
+      padding: 15px 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--navy);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      top: 3px;
+      outline: none;
+    }
+    .tab-btn:first-child { border-radius: 6px 0 0 0; }
+    .tab-btn:last-child  { border-radius: 0 6px 0 0; }
+    .tab-btn:hover { background: #c8d0dc; }
+    .tab-btn.active { background: var(--navy); color: var(--white); border-top: 3px solid var(--gold); }
+    .tab-panels { background: var(--white); border-radius: 0 0 10px 10px; box-shadow: var(--shadow); }
+    .tab-panel { display: none; padding: 40px 44px; animation: fadeSlide 0.28s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeSlide { from { opacity:0; transform:translateX(14px); } to { opacity:1; transform:translateX(0); } }
+    .tab-panel h2 {
+      font-size: 1.2rem; font-weight: 900; color: var(--navy);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 28px; padding-bottom: 12px; border-bottom: 3px solid var(--navy);
+    }
+    .tab-panel p { font-size: 0.96rem; line-height: 1.78; color: var(--text); margin-bottom: 14px; }
+    .tab-panel a { color: var(--navy); text-decoration: underline; }
 
-  .tab-panels { background: var(--white); border-radius: 0 0 10px 10px; box-shadow: var(--shadow); }
-  .tab-panel { display: none; padding: 40px 44px; animation: fadeSlide 0.28s ease; }
-  .tab-panel.active { display: block; }
-  @keyframes fadeSlide { from { opacity:0; transform:translateX(14px); } to { opacity:1; transform:translateX(0); } }
+    /* ── CLAUSE CARDS ── */
+    .clause {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--offwhite); border-left: 4px solid var(--navy);
+      border-radius: 0 6px 6px 0; padding: 16px 20px; margin-bottom: 12px;
+      transition: background 0.18s;
+    }
+    .clause:hover { background: #e8ecf2; }
+    .clause-num { font-size: 1.2rem; font-weight: 900; color: var(--navy); opacity: 0.45; min-width: 28px; padding-top: 3px; }
+    .clause-text { font-size: 0.96rem; line-height: 1.75; color: var(--text); }
+    .clause-text strong { color: var(--navy); }
+    .clause-text a { color: var(--navy); text-decoration: underline; }
 
-  .tab-panel h2 {
-    font-size: 1.2rem; font-weight: 900; color: var(--navy);
-    text-transform: uppercase; letter-spacing: 0.07em;
-    margin-bottom: 28px; padding-bottom: 12px; border-bottom: 3px solid var(--navy);
-  }
-  .tab-panel p { font-size: 0.96rem; line-height: 1.78; color: var(--text); margin-bottom: 14px; }
-  .tab-panel a { color: var(--navy); text-decoration: underline; }
+    /* ── PRIVACY SECTION CARDS ── */
+    .pp-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 24px; background: #eaedf2; border-radius: 5px; padding: 9px 14px; display: inline-block; }
+    .pp-section { margin-bottom: 18px; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; }
+    .pp-section-head { background: var(--navy); color: var(--white); font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; padding: 11px 18px; display: flex; align-items: center; gap: 12px; }
+    .pp-section-num { background: var(--white); color: var(--navy); font-size: 0.82rem; font-weight: 900; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pp-section-body { padding: 18px 20px; font-size: 0.95rem; line-height: 1.76; color: var(--text); background: var(--white); }
+    .pp-section-body ul { margin: 8px 0 4px 18px; }
+    .pp-section-body ul li { margin-bottom: 5px; }
+    .pp-section-body a { color: var(--navy); text-decoration: underline; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 12px; margin-top: 10px; }
+    .contact-item { background: var(--offwhite); border: 1px solid var(--border); border-radius: 6px; padding: 13px 15px; font-size: 0.9rem; line-height: 1.6; }
+    .contact-item strong { display: block; color: var(--navy); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+    .contact-item a { color: var(--navy); text-decoration: underline; }
 
-  /* ── CLAUSE CARDS ── */
-  .clause {
-    display: flex; gap: 20px; align-items: flex-start;
-    background: var(--offwhite); border-left: 4px solid var(--navy);
-    border-radius: 0 6px 6px 0; padding: 16px 20px; margin-bottom: 12px;
-    transition: background 0.18s;
-  }
-  .clause:hover { background: #e8ecf2; }
-  .clause-num { font-size: 1.2rem; font-weight: 900; color: var(--navy); opacity: 0.45; min-width: 28px; padding-top: 3px; }
-  .clause-text { font-size: 0.96rem; line-height: 1.75; color: var(--text); }
-  .clause-text strong { color: var(--navy); }
-  .clause-text a { color: var(--navy); text-decoration: underline; }
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-  /* ── PRIVACY SECTION CARDS ── */
-  .pp-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 24px; background: #eaedf2; border-radius: 5px; padding: 9px 14px; display: inline-block; }
-  .pp-section { margin-bottom: 18px; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; }
-  .pp-section-head {
-    background: var(--navy); color: var(--white);
-    font-size: 0.88rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.07em; padding: 11px 18px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .pp-section-num {
-    background: var(--white); color: var(--navy); font-size: 0.82rem; font-weight: 900;
-    border-radius: 50%; width: 24px; height: 24px;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .pp-section-body { padding: 18px 20px; font-size: 0.95rem; line-height: 1.76; color: var(--text); background: var(--white); }
-  .pp-section-body ul { margin: 8px 0 4px 18px; }
-  .pp-section-body ul li { margin-bottom: 5px; }
-  .pp-section-body a { color: var(--navy); text-decoration: underline; }
-
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 12px; margin-top: 10px; }
-  .contact-item { background: var(--offwhite); border: 1px solid var(--border); border-radius: 6px; padding: 13px 15px; font-size: 0.9rem; line-height: 1.6; }
-  .contact-item strong { display: block; color: var(--navy); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
-  .contact-item a { color: var(--navy); text-decoration: underline; }
-
-  /* ── FOOTER ── */
-  footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
-  footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    nav { padding: 0 16px; }
-    nav ul { display: none; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0; background: var(--navy); padding: 10px 0; }
-    nav ul.open { display: flex; }
-    .nav-toggle { display: flex; }
-    .tab-panel { padding: 24px 18px; }
-    .tab-btn { font-size: 0.78rem; padding: 12px 8px; }
-    .clause { flex-direction: column; gap: 4px; }
-  }
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      nav ul { display: none; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0; background: var(--white); padding: 10px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+      nav ul.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .tab-panel { padding: 24px 18px; }
+      .tab-btn { font-size: 0.78rem; padding: 12px 8px; }
+      .clause { flex-direction: column; gap: 4px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -157,7 +184,7 @@
   </ul>
 </nav>
 
-<!-- HERO with photo -->
+<!-- HERO with different photo -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -166,12 +193,10 @@
 
 <!-- PAGE CONTENT -->
 <div class="page-wrap">
-
   <div class="tab-nav" role="tablist">
-    <button class="tab-btn active" role="tab" aria-selected="true"  onclick="switchTab(0,this)">Terms &amp; Conditions</button>
-    <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(1,this)">Privacy Policy</button>
+    <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchTab(0,this)">Terms &amp; Conditions</button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab(1,this)">Privacy Policy</button>
   </div>
-
   <div class="tab-panels">
 
     <!-- TAB 1: T&C -->
@@ -192,7 +217,6 @@
       <h2>Privacy Policy</h2>
       <div class="pp-meta">Last updated: April 2026</div>
       <p>Your privacy is important to <strong>Ultimate Refunds</strong>. We are committed to handling your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">1</div> Personal Information We Collect</div>
         <div class="pp-section-body">
@@ -209,7 +233,6 @@
           </ul>
         </div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">2</div> How We Use Your Personal Information</div>
         <div class="pp-section-body">
@@ -223,7 +246,6 @@
           </ul>
         </div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">3</div> Automated Decision-Making and AI Systems</div>
         <div class="pp-section-body">
@@ -236,43 +258,30 @@
           <p>These systems assist our team but do not make final decisions. All substantive decisions are made by a human representative. You have the right to request human review by contacting <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>.</p>
         </div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">4</div> Disclosure of Your Personal Information</div>
-        <div class="pp-section-body">
-          <p>We may disclose your personal information to government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO), our CRM and software providers (including Zoho Corporation), our legal advisors, and law enforcement where required by law. We will not sell, rent or trade your personal information for marketing purposes.</p>
-        </div>
+        <div class="pp-section-body"><p>We may disclose your personal information to government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO), our CRM and software providers (including Zoho Corporation), our legal advisors, and law enforcement where required by law. We will not sell, rent or trade your personal information for marketing purposes.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">5</div> Overseas Disclosure</div>
-        <div class="pp-section-body">
-          <p>Some service providers, including Zoho, may store or process your data on servers located overseas (including the United States and India). We take reasonable steps to ensure these providers comply with standards equivalent to Australian privacy law. By using our services, you consent to this disclosure.</p>
-        </div>
+        <div class="pp-section-body"><p>Some service providers, including Zoho, may store or process your data on servers located overseas (including the United States and India). We take reasonable steps to ensure these providers comply with standards equivalent to Australian privacy law. By using our services, you consent to this disclosure.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">6</div> Data Retention</div>
         <div class="pp-section-body"><p>We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes and enforce our agreements. Once your matter is concluded, your information will be securely destroyed or de-identified.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">7</div> Securing Your Data</div>
         <div class="pp-section-body"><p>Ultimate Refunds takes reasonable technical and organisational measures to protect your personal information. In the event of a data breach likely to cause serious harm, we will notify the OAIC and affected individuals in accordance with the Notifiable Data Breaches scheme.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">8</div> Your Rights</div>
-        <div class="pp-section-body">
-          <p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to access and correct your personal information, request human review of any automated decision, and make a complaint about how we have handled your information.</p>
-        </div>
+        <div class="pp-section-body"><p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to access and correct your personal information, request human review of any automated decision, and make a complaint about how we have handled your information.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">9</div> Complaints</div>
         <div class="pp-section-body"><p>Please contact us first — we will respond within 30 days. If unsatisfied, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a> or call 1300 363 992.</p></div>
       </div>
-
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">10</div> Contact Us</div>
         <div class="pp-section-body">
@@ -294,10 +303,15 @@
 </footer>
 
 <script>
-  function switchTab(index, btn) {
-    document.querySelectorAll('.tab-btn').forEach((b,i) => { b.classList.toggle('active', i===index); b.setAttribute('aria-selected', i===index); });
-    document.querySelectorAll('.tab-panel').forEach((p,i) => { p.classList.toggle('active', i===index); });
-  }
+function switchTab(index, btn) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    b.classList.toggle('active', i===index);
+    b.setAttribute('aria-selected', i===index);
+  });
+  document.querySelectorAll('.tab-panel').forEach((p,i) => {
+    p.classList.toggle('active', i===index);
+  });
+}
 </script>
 </body>
 </html>
