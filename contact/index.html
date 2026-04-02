@@ -1,153 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact | Ultimate Refunds</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #1a2a4a;
-    --gold: #c9a84c;
-    --white: #ffffff;
-    --offwhite: #f4f4f4;
-    --text: #333;
-    --text-light: #666;
-    --border: #ddd;
-    --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-  body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ultimate Refunds</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2a4a;
+      --gold: #c9a84c;
+      --white: #ffffff;
+      --offwhite: #f4f4f4;
+      --text: #333;
+      --text-light: #666;
+      --border: #ddd;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
 
-  /* ── NAV ── */
-  nav {
-    background: var(--navy);
-    padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 76px; position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.20);
-  }
-  nav .logo img { height: 52px; display: block; }
-  nav ul { list-style: none; display: flex; gap: 4px; }
-  nav ul li a {
-    color: var(--white); text-decoration: none;
-    font-size: 0.9rem; font-weight: 600;
-    padding: 8px 16px; border-radius: 3px;
-    transition: background 0.18s; letter-spacing: 0.02em;
-  }
-  nav ul li a:hover { background: rgba(255,255,255,0.12); }
-  nav ul li a.active { background: var(--gold); color: var(--navy); }
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
-  .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--white); border-radius: 2px; }
+    /* ── NAV — white, matching homepage ── */
+    nav {
+      background: var(--white);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    nav .logo img { height: 52px; display: block; }
+    nav ul { list-style: none; display: flex; gap: 4px; }
+    nav ul li a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 3px;
+      transition: background 0.18s;
+      letter-spacing: 0.02em;
+    }
+    nav ul li a:hover { background: rgba(26,42,74,0.08); }
+    nav ul li a.active { background: var(--gold); color: var(--navy); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
 
-  /* ── HERO BANNER with photo — matches FAQ style ── */
-  .hero {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/contact-5-used.jpg') center center / cover no-repeat;
-    transform: scale(1.05);
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: rgba(20, 35, 65, 0.55);
-  }
-  .hero h1 {
-    position: relative; z-index: 1;
-    color: var(--white);
-    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  }
+    /* ── HERO BANNER ── */
+    .hero {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/contact-5-used.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero:hover .hero-bg { transform: scale(1.0); }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(20,35,65,0.55); }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      animation: slideDown 0.6s ease both;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-  /* ── LAYOUT ── */
-  .page-wrap {
-    max-width: 960px; margin: 0 auto;
-    padding: 40px 24px 80px;
-    display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start;
-  }
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
 
-  /* ── CONTACT DETAILS CARD ── */
-  .contact-details {
-    background: var(--white); border-radius: 10px;
-    box-shadow: var(--shadow); padding: 28px 24px;
-  }
-  .contact-details h2 {
-    font-size: 0.95rem; font-weight: 900; color: var(--navy);
-    text-transform: uppercase; letter-spacing: 0.07em;
-    margin-bottom: 18px; padding-bottom: 10px;
-    border-bottom: 3px solid var(--navy);
-  }
-  .contact-details p { font-size: 0.87rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
-  .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.92rem; line-height: 1.5; }
-  .contact-item .icon {
-    width: 32px; height: 32px; background: var(--navy);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 0.85rem; color: var(--white);
-  }
-  .contact-item a { color: var(--navy); text-decoration: none; }
-  .contact-item a:hover { text-decoration: underline; }
-  .contact-item strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 2px; }
+    /* ── CONTACT DETAILS CARD — slides in from left ── */
+    .contact-details {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 28px 24px;
+      animation: slideInLeft 0.5s ease both;
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .contact-details h2 {
+      font-size: 0.95rem; font-weight: 900; color: var(--navy);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid var(--navy);
+    }
+    .contact-details p { font-size: 0.87rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 0.92rem; line-height: 1.5; }
+    .contact-item .icon {
+      width: 36px; height: 36px; background: var(--navy); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.9rem; color: var(--white);
+    }
+    .contact-item a { color: var(--navy); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-item strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 2px; }
 
-  /* ── FORM CARD ── */
-  .form-card { background: var(--white); border-radius: 10px; box-shadow: var(--shadow); padding: 28px 32px; }
-  .form-card h2 {
-    font-size: 0.95rem; font-weight: 900; color: var(--navy);
-    text-transform: uppercase; letter-spacing: 0.07em;
-    margin-bottom: 22px; padding-bottom: 10px;
-    border-bottom: 3px solid var(--navy);
-  }
+    /* ── FORM CARD — slides in from right ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      animation: slideInRight 0.5s ease 0.15s both;
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .form-card h2 {
+      font-size: 0.95rem; font-weight: 900; color: var(--navy);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 22px; padding-bottom: 10px; border-bottom: 3px solid var(--navy);
+    }
 
-  /* ── ZOHO FORM OVERRIDES ── */
-  #crmWebToEntityForm.zcwf_lblLeft { background-color: transparent !important; padding: 0 !important; max-width: 100% !important; }
-  .zcwf_title { display: none !important; }
-  .zcwf_lblLeft .zcwf_col_lab { font-size: 0.87rem !important; color: var(--text) !important; width: 28% !important; }
-  .zcwf_lblLeft .zcwf_col_fld { width: 70% !important; }
-  .zcwf_lblLeft .zcwf_col_fld input[type=text],
-  .zcwf_lblLeft .zcwf_col_fld textarea {
-    width: 100% !important; border: 1px solid var(--border) !important;
-    border-radius: 4px !important; padding: 7px 10px !important;
-    font-size: 0.9rem !important; font-family: Arial, sans-serif !important;
-  }
-  .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
-  .zcwf_lblLeft .zcwf_col_fld textarea:focus { outline: 2px solid var(--navy) !important; border-color: var(--navy) !important; }
-  .formsubmit.zcwf_button {
-    background: var(--navy) !important; color: var(--white) !important;
-    border: none !important; padding: 10px 28px !important;
-    border-radius: 4px !important; font-size: 0.95rem !important;
-    font-weight: 700 !important; cursor: pointer !important; max-width: none !important;
-  }
-  .formsubmit.zcwf_button:hover { background: #223355 !important; }
-  .zcwf_button[name=reset] {
-    background: transparent !important; color: var(--text-light) !important;
-    border: 1px solid var(--border) !important; padding: 10px 20px !important;
-    border-radius: 4px !important; font-size: 0.9rem !important;
-    cursor: pointer !important; max-width: none !important;
-  }
-  .wfrm_fld_dpNn { display: none !important; }
+    /* ── ZOHO FORM OVERRIDES ── */
+    #crmWebToEntityForm.zcwf_lblLeft {
+      background-color: transparent !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+    .zcwf_title { display: none !important; }
+    .zcwf_lblLeft .zcwf_col_lab { font-size: 0.87rem !important; color: var(--text) !important; width: 28% !important; }
+    .zcwf_lblLeft .zcwf_col_fld { width: 70% !important; }
+    .zcwf_lblLeft .zcwf_col_fld input[type=text],
+    .zcwf_lblLeft .zcwf_col_fld textarea {
+      width: 100% !important; border: 1px solid var(--border) !important;
+      border-radius: 4px !important; padding: 8px 10px !important;
+      font-size: 0.9rem !important; font-family: Arial, sans-serif !important;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
+    .zcwf_lblLeft .zcwf_col_fld textarea:focus {
+      outline: none !important;
+      border-color: var(--navy) !important;
+      box-shadow: 0 0 0 3px rgba(26,42,74,0.12) !important;
+    }
+    .formsubmit.zcwf_button {
+      background: var(--navy) !important; color: var(--white) !important;
+      border: none !important; padding: 11px 30px !important; border-radius: 4px !important;
+      font-size: 0.95rem !important; font-weight: 700 !important; cursor: pointer !important;
+      max-width: none !important; transition: background 0.2s !important;
+    }
+    .formsubmit.zcwf_button:hover { background: #223355 !important; }
+    .zcwf_button[name=reset] {
+      background: transparent !important; color: var(--text-light) !important;
+      border: 1px solid var(--border) !important; padding: 11px 22px !important;
+      border-radius: 4px !important; font-size: 0.9rem !important;
+      cursor: pointer !important; max-width: none !important;
+    }
+    .wfrm_fld_dpNn { display: none !important; }
+    /* Row spacing */
+    .zcwf_row { margin-bottom: 14px !important; }
 
-  /* ── FOOTER ── */
-  footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
-  footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    nav { padding: 0 16px; }
-    nav ul { display: none; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0; background: var(--navy); padding: 10px 0; }
-    nav ul.open { display: flex; }
-    .nav-toggle { display: flex; }
-    .page-wrap { grid-template-columns: 1fr; }
-    .form-card { padding: 22px 18px; }
-    .zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld { width: auto !important; float: none !important; }
-  }
-</style>
+    /* ── RESPONSIVE / MOBILE ── */
+    @media (max-width: 700px) {
+      nav { padding: 0 16px; }
+      nav ul {
+        display: none; flex-direction: column;
+        position: absolute; top: 76px; left: 0; right: 0;
+        background: var(--white); padding: 10px 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      }
+      nav ul.open { display: flex; }
+      nav ul li a { padding: 12px 20px; border-radius: 0; }
+      .nav-toggle { display: flex; }
+
+      .page-wrap {
+        grid-template-columns: 1fr;
+        padding: 24px 16px 60px;
+        gap: 20px;
+      }
+      .form-card { padding: 22px 18px; }
+
+      /* Stack Zoho form labels above fields on mobile */
+      .zcwf_lblLeft .zcwf_col_lab,
+      .zcwf_lblLeft .zcwf_col_fld {
+        width: 100% !important;
+        float: none !important;
+        display: block !important;
+      }
+      .zcwf_lblLeft .zcwf_col_lab { margin-bottom: 4px !important; }
+    }
+
+    @media (max-width: 400px) {
+      .hero { height: 160px; }
+      .contact-details, .form-card { padding: 18px 14px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -167,7 +246,7 @@
   </ul>
 </nav>
 
-<!-- HERO with photo -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -177,6 +256,7 @@
 <!-- CONTENT -->
 <div class="page-wrap">
 
+  <!-- LEFT: Contact details -->
   <aside class="contact-details">
     <h2>Contact Details</h2>
     <p>If you have any questions regarding the recovery process or unclaimed money in general, please don't hesitate to contact us.</p>
@@ -198,11 +278,10 @@
     </div>
   </aside>
 
+  <!-- RIGHT: Zoho form -->
   <div class="form-card">
     <h2>Message Us</h2>
-
-    <!-- ZOHO CRM FORM — fresh tokens April 2026 -->
-    <div id='crmWebToEntityForm' class='zcwf_lblLeft crmWebToEntityForm' style='background-color: white;color: black;max-width: 900px;'>
+    <div id='crmWebToEntityForm' class='zcwf_lblLeft crmWebToEntityForm' style='background-color:white;color:black;max-width:900px;'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <META HTTP-EQUIV='content-type' CONTENT='text/html;charset=UTF-8'>
       <form id='webform5148237000000536003' action='https://crm.zoho.com/crm/WebToLeadForm' name='WebToLeads5148237000000536003' method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory5148237000000536003()' accept-charset='UTF-8'>
@@ -211,34 +290,31 @@
         <input type='text' style='display:none;' name='xmIwtLD' value='948439976fa3de02d5f6f3aad290fe2efed0d17f762699dfb537f42b50d8841ca22e2cdae49993788dd1f4ef5f1cd787'></input>
         <input type='text' style='display:none;' name='actionType' value='TGVhZHM='></input>
         <input type='text' style='display:none;' name='returnURL' value='https://ultimaterefunds.com.au/thankyou.html'></input>
-        <!-- Do not remove this code. -->
         <input type='text' style='display:none;' id='ldeskuid' name='ldeskuid'></input>
         <input type='text' style='display:none;' id='LDTuvid' name='LDTuvid'></input>
-        <!-- Do not remove this code. -->
-
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='Designation'>Title <span style='color:red;'>*</span></label></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='Designation'>Title <span style='color:red;'>*</span></label></div>
           <div class='zcwf_col_fld'><input type='text' id='Designation' aria-required='true' name='Designation' maxlength='100'></input></div>
         </div>
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='First_Name'>First Name <span style='color:red;'>*</span></label></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='First_Name'>First Name <span style='color:red;'>*</span></label></div>
           <div class='zcwf_col_fld'><input type='text' id='First_Name' aria-required='true' name='First Name' maxlength='40'></input></div>
         </div>
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='Last_Name'>Last Name <span style='color:red;'>*</span></label></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='Last_Name'>Last Name <span style='color:red;'>*</span></label></div>
           <div class='zcwf_col_fld'><input type='text' id='Last_Name' aria-required='true' name='Last Name' maxlength='80'></input></div>
         </div>
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='Email'>Email <span style='color:red;'>*</span></label></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='Email'>Email <span style='color:red;'>*</span></label></div>
           <div class='zcwf_col_fld'><input type='text' ftype='email' autocomplete='false' id='Email' aria-required='true' name='Email' maxlength='100'></input></div>
         </div>
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='Mobile'>Mobile <span style='color:red;'>*</span></label></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='Mobile'>Mobile <span style='color:red;'>*</span></label></div>
           <div class='zcwf_col_fld'><input type='text' id='Mobile' aria-required='true' name='Mobile' maxlength='30'></input></div>
         </div>
         <div class='zcwf_row'>
-          <div class='zcwf_col_lab' style='font-size:16px; font-family: Arial;'><label for='Description'>Message</label></div>
-          <div class='zcwf_col_fld'><textarea style='font-family: Arial, sans-serif;' id='Description' name='Description'></textarea></div>
+          <div class='zcwf_col_lab' style='font-size:16px;font-family:Arial;'><label for='Description'>Message</label></div>
+          <div class='zcwf_col_fld'><textarea style='font-family:Arial,sans-serif;' id='Description' name='Description' rows='4'></textarea></div>
         </div>
         <div class='zcwf_row wfrm_fld_dpNn'>
           <div class='zcwf_col_lab'><label for='Lead_Source'>Lead Source</label></div>
@@ -257,61 +333,59 @@
             <input type='reset' class='zcwf_button' name='reset' value='Reset' title='Reset'>
           </div>
         </div>
-
         <script>
-          function validateEmail5148237000000536003(){
-            var form = document.forms['WebToLeads5148237000000536003'];
-            var emailFld = form.querySelectorAll('[ftype=email]');
-            for(var i=0;i<emailFld.length;i++){
-              var emailVal=emailFld[i].value;
-              if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){
-                var atpos=emailVal.indexOf('@');var dotpos=emailVal.lastIndexOf('.');
-                if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){alert('Please enter a valid email address.');emailFld[i].focus();return false;}
-              }
+        function validateEmail5148237000000536003(){
+          var form=document.forms['WebToLeads5148237000000536003'];
+          var emailFld=form.querySelectorAll('[ftype=email]');
+          for(var i=0;i<emailFld.length;i++){
+            var emailVal=emailFld[i].value;
+            if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){
+              var atpos=emailVal.indexOf('@');var dotpos=emailVal.lastIndexOf('.');
+              if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){alert('Please enter a valid email address.');emailFld[i].focus();return false;}
             }
-            return true;
           }
-          function checkMandatory5148237000000536003(){
-            var mndFileds=['First Name','Last Name','Designation','Email','Mobile'];
-            var fldLangVal=['First Name','Last Name','Title','Email','Mobile'];
-            for(var i=0;i<mndFileds.length;i++){
-              var fieldObj=document.forms['WebToLeads5148237000000536003'][mndFileds[i]];
-              if(fieldObj&&((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}
-            }
-            trackVisitor5148237000000536003();
-            if(!validateEmail5148237000000536003()){return false;}
-            document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled',true);
+          return true;
+        }
+        function checkMandatory5148237000000536003(){
+          var mndFileds=['First Name','Last Name','Designation','Email','Mobile'];
+          var fldLangVal=['First Name','Last Name','Title','Email','Mobile'];
+          for(var i=0;i<mndFileds.length;i++){
+            var fieldObj=document.forms['WebToLeads5148237000000536003'][mndFileds[i]];
+            if(fieldObj&&((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}
           }
+          trackVisitor5148237000000536003();
+          if(!validateEmail5148237000000536003()){return false;}
+          document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled',true);
+        }
         </script>
-        <!-- Do not remove — Visitor Tracking -->
+        <!-- Visitor Tracking -->
         <script type='text/javascript' id='VisitorTracking'>
-          var $zoho=$zoho||{};
-          $zoho.salesiq=$zoho.salesiq||{widgetcode:'siqdfc17f9abc9f3cd756c0f0d2f2ce802a35ddd69036c54269db99693e125cbfde',values:{},ready:function(){}};
-          var d=document;s=d.createElement('script');s.type='text/javascript';s.id='zsiqscript';s.defer=true;
-          s.src='https://salesiq.zoho.com/widget';t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
-          function trackVisitor5148237000000536003(){
-            try{if($zoho){
-              var LDTuvidObj=document.forms['WebToLeads5148237000000536003']['LDTuvid'];
-              if(LDTuvidObj){LDTuvidObj.value=$zoho.salesiq.visitor.uniqueid();}
-              var name='';
-              var firstnameObj=document.forms['WebToLeads5148237000000536003']['First Name'];
-              if(firstnameObj){name=firstnameObj.value+' '+name;}
-              $zoho.salesiq.visitor.name(name);
-              var emailObj=document.forms['WebToLeads5148237000000536003']['Email'];
-              if(emailObj){$zoho.salesiq.visitor.email(emailObj.value);}
-            }}catch(e){}
-          }
+        var $zoho=$zoho||{};$zoho.salesiq=$zoho.salesiq||{widgetcode:'siqdfc17f9abc9f3cd756c0f0d2f2ce802a35ddd69036c54269db99693e125cbfde',values:{},ready:function(){}};
+        var d=document;s=d.createElement('script');s.type='text/javascript';s.id='zsiqscript';s.defer=true;
+        s.src='https://salesiq.zoho.com/widget';t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+        function trackVisitor5148237000000536003(){
+          try{if($zoho){
+            var LDTuvidObj=document.forms['WebToLeads5148237000000536003']['LDTuvid'];
+            if(LDTuvidObj){LDTuvidObj.value=$zoho.salesiq.visitor.uniqueid();}
+            var name='';
+            var firstnameObj=document.forms['WebToLeads5148237000000536003']['First Name'];
+            if(firstnameObj){name=firstnameObj.value+' '+name;}
+            $zoho.salesiq.visitor.name(name);
+            var emailObj=document.forms['WebToLeads5148237000000536003']['Email'];
+            if(emailObj){$zoho.salesiq.visitor.email(emailObj.value);}
+          }}catch(e){}
+        }
         </script>
-        <!-- Do not remove — Analytics -->
         <script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=6cff1e8b1f35446c5f3b99315364a212d92777a3f5604852875a61b1e11e280749d7725c2de9148cf650c6fe5c381bf8gidac1a1b6fe8895eeb591fe767eed1fcac306862bf08de4e6875b26cfdee14b2abgid191b27e249cc9a519442a45f84cdb937f6830ce166c636d048edaf40772b3090gid47f90adf584780ae0d2cc770a619f5d5d75e1057594c15ca0751e572d8b03315&tw=921cc0177a2eec505b595328c9523934d51c4d825a22b98577f5b7ff67f7fe94'></script>
       </form>
     </div>
-    <!-- END ZOHO FORM -->
   </div>
+
 </div>
 
 <footer>
   Copyright &copy; 2026 <a href="https://ultimaterefunds.com.au/index.html">Ultimate Refunds</a>. All rights reserved.
 </footer>
+
 </body>
 </html>
