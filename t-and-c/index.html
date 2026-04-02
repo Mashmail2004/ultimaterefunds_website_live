@@ -1,145 +1,591 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Terms &amp; Conditions | Ultimate Refunds</title>
-<link rel="icon" href="../wp-content/uploads/2022/01/fav-1-150x150.png" sizes="32x32" />
+<title>Terms & Conditions | Ultimate Refunds</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; color: #666; background: #fff; line-height: 1.7em; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* NAV */
-#main-header { background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.1); position: relative; z-index: 999; height: 80px; display: flex; align-items: center; padding: 0 10%; justify-content: space-between; }
-#main-header img { height: 54px; width: auto; }
-nav a { text-decoration: none; color: rgba(0,0,0,0.6); font-size: 14px; font-weight: 600; margin-left: 22px; transition: opacity 0.2s; }
-nav a:hover { opacity: 0.7; }
-nav a.active { color: #2ea3f2; }
+  :root {
+    --navy: #1a2a4a;
+    --navy-light: #223355;
+    --gold: #c9a84c;
+    --gold-light: #e8c96e;
+    --white: #ffffff;
+    --offwhite: #f7f7f5;
+    --text: #2c2c2c;
+    --text-light: #555;
+    --border: #ddd;
+    --shadow: 0 4px 24px rgba(26,42,74,0.10);
+  }
 
-/* HERO */
-.hero { background: #1A1A2E; padding: 50px 10%; text-align: center; }
-.hero h1 { color: #fff; font-size: 32px; font-weight: 700; letter-spacing: 1px; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--offwhite);
+    color: var(--text);
+    min-height: 100vh;
+  }
 
-/* CONTENT */
-.content { max-width: 900px; margin: 50px auto; padding: 0 5%; }
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  nav .logo img {
+    height: 48px;
+    display: block;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+  }
+  nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
 
-h2 { color: #333; font-size: 22px; font-weight: 600; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #eee; }
-h2:first-child { margin-top: 0; }
-h3 { color: #1B5EA6; font-size: 16px; font-weight: 600; margin: 24px 0 10px; }
-p { color: #666; margin-bottom: 14px; line-height: 1.8; }
-p strong { color: #333; }
-ul { margin: 0 0 14px 20px; color: #666; }
-ul li { margin-bottom: 6px; line-height: 1.7; }
-a { color: #2ea3f2; text-decoration: none; }
-a:hover { text-decoration: underline; }
-hr { border: none; border-top: 2px solid #eee; margin: 40px 0; }
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 60%, var(--navy-light) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 56px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.04) 40px,
+      rgba(201,168,76,0.04) 80px
+    );
+  }
+  .hero h1 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .hero h1 span {
+    color: var(--gold);
+  }
+  .hero-rule {
+    width: 60px;
+    height: 4px;
+    background: var(--gold);
+    margin: 18px auto 0;
+    border-radius: 2px;
+    position: relative;
+  }
 
-.clause { margin-bottom: 18px; }
-.clause p { margin: 0; }
+  /* ── MAIN WRAPPER ── */
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
 
-.updated { display: inline-block; background: #E8F0FB; color: #1B5EA6; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 3px; margin-bottom: 20px; }
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 3px solid var(--navy);
+    margin-bottom: 0;
+  }
+  .tab-btn {
+    flex: 1;
+    background: #e8edf4;
+    border: none;
+    border-bottom: none;
+    padding: 16px 24px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    cursor: pointer;
+    transition: background 0.22s, color 0.22s;
+    position: relative;
+    top: 3px;
+    outline: none;
+  }
+  .tab-btn:first-child {
+    border-radius: 8px 0 0 0;
+  }
+  .tab-btn:last-child {
+    border-radius: 0 8px 0 0;
+  }
+  .tab-btn:hover {
+    background: #d0dae8;
+  }
+  .tab-btn.active {
+    background: var(--navy);
+    color: var(--gold);
+    border-top: 3px solid var(--gold);
+  }
 
-/* FOOTER */
-#main-footer { background: #1f1f1f; padding: 14px 10%; text-align: center; color: #fff; font-size: 14px; margin-top: 60px; }
+  /* ── TAB PANELS ── */
+  .tab-panels {
+    background: var(--white);
+    border-radius: 0 0 12px 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .tab-panel {
+    display: none;
+    padding: 40px 44px;
+    animation: fadeSlide 0.3s ease;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateX(18px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ── CONTENT TYPOGRAPHY ── */
+  .tab-panel h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .tab-panel h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tab-panel p {
+    font-size: 0.97rem;
+    line-height: 1.78;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .tab-panel ul {
+    margin: 10px 0 16px 20px;
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .tab-panel ul li {
+    margin-bottom: 6px;
+  }
+
+  /* ── CLAUSE CARDS ── */
+  .clause {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--offwhite);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .clause:hover {
+    border-color: var(--navy);
+    background: #eef1f7;
+  }
+  .clause-num {
+    font-family: Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--gold);
+    min-width: 32px;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .clause-text {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .clause-text strong {
+    color: var(--navy);
+  }
+  .clause-text a {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  /* ── PRIVACY SECTION CARDS ── */
+  .pp-section {
+    margin-bottom: 28px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .pp-section-head {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pp-section-num {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.85rem;
+    font-weight: 900;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .pp-section-body {
+    padding: 20px 22px;
+    font-size: 0.96rem;
+    line-height: 1.76;
+    color: var(--text);
+    background: var(--white);
+  }
+  .pp-section-body ul {
+    margin: 8px 0 4px 18px;
+  }
+  .pp-section-body ul li {
+    margin-bottom: 5px;
+  }
+
+  .pp-meta {
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 28px;
+    background: #eef1f7;
+    border-radius: 6px;
+    padding: 10px 16px;
+    display: inline-block;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .contact-item {
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .contact-item strong {
+    display: block;
+    color: var(--navy);
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .contact-item a { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 22px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav ul { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--navy); padding: 12px 0; }
+    nav ul.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .tab-panel { padding: 28px 20px; }
+    .tab-btn { font-size: 0.82rem; padding: 13px 10px; letter-spacing: 0.02em; }
+    .clause { flex-direction: column; gap: 6px; }
+  }
 </style>
 </head>
 <body>
 
-<header id="main-header">
-  <a href="../index.html"><img src="../wp-content/uploads/2022/01/logo.png" alt="Ultimate Refunds" /></a>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../t-and-c/index.html" class="active">Terms &amp; Conditions</a>
-    <a href="../faq/index.html">Faq</a>
-    <a href="../contact/index.html">Contact</a>
-  </nav>
-</header>
-
-<div class="hero"><h1>TERMS &amp; CONDITIONS</h1></div>
-
-<div class="content">
-
-  <h2>Terms &amp; Conditions</h2>
-
-  <div class="clause"><p><strong>1.</strong> <strong>Ultimate Refunds</strong> cannot disclose the source of your funds unless we have your signed authority.</p></div>
-  <div class="clause"><p><strong>2.</strong> <strong>Ultimate Refunds</strong> (fee) is payable of all monies recovered, upon recovery of funds.</p></div>
-  <div class="clause"><p><strong>3.</strong> The refund fees are to be paid from the client's unclaimed money claim. The client understands they will receive the balance deposited electronically to their nominated bank account. The client accepts they are responsible for providing correct information and that incorrect information may cause delays in receiving their unclaimed money.</p></div>
-  <div class="clause"><p><strong>4.</strong> Once <a href="../authority-to-release.pdf">Authority to Release</a> is signed the claimant cannot withdraw from our services to recover the claim. Should the claimant withdraw from supplying relevant documents requested (within the client ability) to complete the claim, you will still be liable to pay the recovery fee. Upon refusal to supply extra documents <strong>Ultimate Refunds</strong> will give 7 days notice to the client, the client's file will be closed and payment of our fee will be required.</p></div>
-  <div class="clause"><p><strong>5.</strong> Should suit be commenced or an attorney employed to enforce payment of the recovery fee pursuant of this agreement, the claimant agrees to pay such additional sum as the court may adjudge reasonable as attorney's fees in said suit.</p></div>
-  <div class="clause"><p><strong>6.</strong> <strong>Ultimate Refunds</strong> accepts no responsibility for the accuracy, currency or completeness of any information provided via any correspondence and or communications. The accuracy or reliability of the information provided is not guaranteed or warranted in any way and <strong>Ultimate Refunds</strong>, its agencies, representatives, subsidiaries and affiliates disclaim liability of any kind whatsoever, including &amp; without limitation, liability for accuracy, quality, performance, or reliability for a particular purpose arising out of the information provided.</p></div>
-  <div class="clause"><p><strong>7.</strong> These Terms &amp; Conditions can be varied at any time by <strong>Ultimate Refunds</strong> upon the giving of 7 days notice in writing to the Client detailing such changes.</p></div>
-  <div class="clause"><p><strong>8.</strong> If you are having any trouble getting hold of the requested identity documentation in your information pack, contact us via our <a href="../contact/index.html">Contact Page</a> to discuss alternatives.</p></div>
-
-  <hr />
-
-  <h2>Privacy Policy</h2>
-  <span class="updated">Last updated: April 2026</span>
-
-  <p>Your privacy is important to <strong>Ultimate Refunds</strong>. We are committed to handling your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
-
-  <h3>1. Personal Information We Collect</h3>
-  <p>We collect personal information necessary to provide our unclaimed money recovery services. This may include:</p>
+<!-- NAV -->
+<nav>
+  <a href="https://ultimaterefunds.com.au/index.html" class="logo">
+    <img src="https://ultimaterefunds.com.au/wp-content/uploads/2022/01/logo.png" alt="Ultimate Refunds" />
+  </a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul>
-    <li>Full name, date of birth and previous names</li>
-    <li>Current and previous residential or business addresses</li>
-    <li>Email address, phone number and preferred contact method</li>
-    <li>Tax File Number (TFN) where required by a holding authority</li>
-    <li>ABN or ACN (for business claimants)</li>
-    <li>Bank account details for disbursement of recovered funds</li>
-    <li>Identity documents (passport, driver's licence, Medicare card etc.)</li>
-    <li>Information about deceased estates where applicable</li>
+    <li><a href="https://ultimaterefunds.com.au/index.html">Home</a></li>
+    <li><a href="https://ultimaterefunds.com.au/t-and-c/index.html" class="active">Terms &amp; Conditions</a></li>
+    <li><a href="https://ultimaterefunds.com.au/faq/index.html">FAQ</a></li>
+    <li><a href="https://ultimaterefunds.com.au/contact/index.html">Contact</a></li>
   </ul>
+</nav>
 
-  <h3>2. How We Use Your Personal Information</h3>
-  <ul>
-    <li>Investigate and recover unclaimed money or assets on your behalf</li>
-    <li>Verify your identity with relevant government authorities and holding bodies</li>
-    <li>Lodge claims with the relevant state or federal authority</li>
-    <li>Communicate with you about the progress of your claim</li>
-    <li>Process disbursement of recovered funds to your nominated account</li>
-    <li>Comply with our legal obligations and improve our services</li>
-  </ul>
-
-  <h3>3. Automated Decision-Making and AI Systems</h3>
-  <p><strong>Ultimate Refunds</strong> currently uses and may in the future use automated systems and artificial intelligence (AI) tools to assist with:</p>
-  <ul>
-    <li><strong>Lead filtering and prioritisation:</strong> Enquiries submitted via our website or received by phone or email may be assessed and prioritised using automated tools.</li>
-    <li><strong>Communication screening:</strong> Incoming emails and calls may be processed through AI-assisted systems to categorise, route or summarise communications for our team.</li>
-    <li><strong>Document processing:</strong> Submitted identity documents and claim forms may be processed using automated tools to assist with verification and data extraction.</li>
-  </ul>
-  <p>These systems assist our team but do <strong>not</strong> make final decisions about your claim. All substantive decisions are made by a human representative. You have the right to request human review of any decision by contacting <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>.</p>
-
-  <h3>4. Disclosure of Your Personal Information</h3>
-  <p>We may disclose your personal information to government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO), our CRM and software providers (including Zoho Corporation), our legal advisors, and law enforcement where required by law. We will not sell, rent or trade your personal information to any third party for marketing purposes.</p>
-
-  <h3>5. Overseas Disclosure</h3>
-  <p>Some service providers, including Zoho, may store or process your data on servers located overseas (including the United States and India). We take reasonable steps to ensure these providers comply with standards equivalent to Australian privacy law. By using our services, you consent to this disclosure.</p>
-
-  <h3>6. Data Retention</h3>
-  <p>We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes and enforce our agreements. Once your matter is concluded and retention obligations are met, your information will be securely destroyed or de-identified.</p>
-
-  <h3>7. Securing Your Data</h3>
-  <p><strong>Ultimate Refunds</strong> takes reasonable technical and organisational measures to protect your personal information from loss, misuse, unauthorised access or disclosure. In the event of a data breach likely to cause serious harm, we will notify the OAIC and affected individuals in accordance with the Notifiable Data Breaches scheme.</p>
-
-  <h3>8. Your Rights</h3>
-  <p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to access and correct your personal information, request human review of any automated decision, and make a complaint about how we have handled your information.</p>
-
-  <h3>9. Complaints</h3>
-  <p>If you have a complaint, please contact us first — we will respond within 30 days. If unsatisfied, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a> or call 1300 363 992.</p>
-
-  <h3>10. Contact Us</h3>
-  <p>
-    <strong>Email:</strong> <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a><br />
-    <strong>Mail:</strong> PO Box 19, Narangba QLD 4504<br />
-    <strong>Phone:</strong> 0493 013 971
-  </p>
-  <p>This Privacy Policy may be updated from time to time. The current version will always be published on our website with the date of last update noted above.</p>
-
+<!-- HERO -->
+<div class="hero">
+  <h1>Terms &amp; <span>Conditions</span></h1>
+  <div class="hero-rule"></div>
 </div>
 
-<footer id="main-footer">
-  Copyright &copy; 2026 Ultimate Refunds. All rights reserved.
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- TAB NAV -->
+  <div class="tab-nav" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true"  onclick="switchTab(0, this)">Terms &amp; Conditions</button>
+    <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(1, this)">Privacy Policy</button>
+  </div>
+
+  <div class="tab-panels">
+
+    <!-- ── TAB 1: TERMS & CONDITIONS ── -->
+    <div class="tab-panel active" id="panel-0">
+      <h2>Terms &amp; Conditions</h2>
+
+      <div class="clause">
+        <div class="clause-num">1</div>
+        <div class="clause-text"><strong>Ultimate Refunds</strong> cannot disclose the source of your funds unless we have your signed authority.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">2</div>
+        <div class="clause-text"><strong>Ultimate Refunds</strong> fee is payable on all monies recovered, upon recovery of funds.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">3</div>
+        <div class="clause-text">The refund fees are to be paid from the client's unclaimed money claim. The client understands they will receive the balance deposited electronically to their nominated bank account. The client accepts they are responsible for providing correct information and that incorrect information may cause delays in receiving their unclaimed money.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">4</div>
+        <div class="clause-text">Once <a href="https://ultimaterefunds.com.au/authority-to-release.pdf">Authority to Release</a> is signed the claimant cannot withdraw from our services to recover the claim. Should the claimant withdraw from supplying relevant documents requested (within the client's ability) to complete the claim, you will still be liable to pay the recovery fee. Upon refusal to supply extra documents, <strong>Ultimate Refunds</strong> will give 7 days notice to the client, the client's file will be closed and payment of our fee will be required.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">5</div>
+        <div class="clause-text">Should suit be commenced or an attorney employed to enforce payment of the recovery fee pursuant of this agreement, the claimant agrees to pay such additional sum as the court may adjudge reasonable as attorney's fees in said suit.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">6</div>
+        <div class="clause-text"><strong>Ultimate Refunds</strong> accepts no responsibility for the accuracy, currency or completeness of any information provided via any correspondence and/or communications. The accuracy or reliability of the information provided is not guaranteed or warranted in any way and <strong>Ultimate Refunds</strong>, its agencies, representatives, subsidiaries and affiliates disclaim liability of any kind whatsoever, including &amp; without limitation, liability for accuracy, quality, performance, or reliability for a particular purpose arising out of the information provided.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">7</div>
+        <div class="clause-text">These Terms &amp; Conditions can be varied at any time by <strong>Ultimate Refunds</strong> upon the giving of 7 days notice in writing to the Client detailing such changes.</div>
+      </div>
+
+      <div class="clause">
+        <div class="clause-num">8</div>
+        <div class="clause-text">If you are having any trouble getting hold of the requested identity documentation in your information pack, contact us via our <a href="https://ultimaterefunds.com.au/contact/index.html">Contact Page</a> to discuss alternatives.</div>
+      </div>
+    </div>
+
+    <!-- ── TAB 2: PRIVACY POLICY ── -->
+    <div class="tab-panel" id="panel-1">
+      <h2>Privacy Policy</h2>
+      <div class="pp-meta">Last updated: April 2026</div>
+
+      <p>Your privacy is important to <strong>Ultimate Refunds</strong>. We are committed to handling your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">1</div> Personal Information We Collect</div>
+        <div class="pp-section-body">
+          <p>We collect personal information necessary to provide our unclaimed money recovery services. This may include:</p>
+          <ul>
+            <li>Full name, date of birth and previous names</li>
+            <li>Current and previous residential or business addresses</li>
+            <li>Email address, phone number and preferred contact method</li>
+            <li>Tax File Number (TFN) where required by a holding authority</li>
+            <li>ABN or ACN (for business claimants)</li>
+            <li>Bank account details for disbursement of recovered funds</li>
+            <li>Identity documents (passport, driver's licence, Medicare card etc.)</li>
+            <li>Information about deceased estates where applicable</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">2</div> How We Use Your Personal Information</div>
+        <div class="pp-section-body">
+          <ul>
+            <li>Investigate and recover unclaimed money or assets on your behalf</li>
+            <li>Verify your identity with relevant government authorities and holding bodies</li>
+            <li>Lodge claims with the relevant state or federal authority</li>
+            <li>Communicate with you about the progress of your claim</li>
+            <li>Process disbursement of recovered funds to your nominated account</li>
+            <li>Comply with our legal obligations and improve our services</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">3</div> Automated Decision-Making and AI Systems</div>
+        <div class="pp-section-body">
+          <p>Ultimate Refunds currently uses and may in the future use automated systems and artificial intelligence (AI) tools to assist with:</p>
+          <ul>
+            <li><strong>Lead filtering and prioritisation:</strong> Enquiries submitted via our website or received by phone or email may be assessed and prioritised using automated tools.</li>
+            <li><strong>Communication screening:</strong> Incoming emails and calls may be processed through AI-assisted systems to categorise, route or summarise communications for our team.</li>
+            <li><strong>Document processing:</strong> Submitted identity documents and claim forms may be processed using automated tools to assist with verification and data extraction.</li>
+          </ul>
+          <p>These systems assist our team but do not make final decisions about your claim. All substantive decisions are made by a human representative. You have the right to request human review of any decision by contacting <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">4</div> Disclosure of Your Personal Information</div>
+        <div class="pp-section-body">
+          <p>We may disclose your personal information to:</p>
+          <ul>
+            <li>Government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO)</li>
+            <li>Our CRM and software providers (including Zoho Corporation)</li>
+            <li>Our legal advisors</li>
+            <li>Law enforcement where required by law</li>
+          </ul>
+          <p>We will not sell, rent or trade your personal information to any third party for marketing purposes.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">5</div> Overseas Disclosure</div>
+        <div class="pp-section-body">
+          <p>Some service providers, including Zoho, may store or process your data on servers located overseas (including the United States and India). We take reasonable steps to ensure these providers comply with standards equivalent to Australian privacy law. By using our services, you consent to this disclosure.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">6</div> Data Retention</div>
+        <div class="pp-section-body">
+          <p>We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes and enforce our agreements. Once your matter is concluded and retention obligations are met, your information will be securely destroyed or de-identified.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">7</div> Securing Your Data</div>
+        <div class="pp-section-body">
+          <p>Ultimate Refunds takes reasonable technical and organisational measures to protect your personal information from loss, misuse, unauthorised access or disclosure. In the event of a data breach likely to cause serious harm, we will notify the OAIC and affected individuals in accordance with the Notifiable Data Breaches scheme.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">8</div> Your Rights</div>
+        <div class="pp-section-body">
+          <p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to:</p>
+          <ul>
+            <li>Access and correct your personal information</li>
+            <li>Request human review of any automated decision</li>
+            <li>Make a complaint about how we have handled your information</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">9</div> Complaints</div>
+        <div class="pp-section-body">
+          <p>If you have a complaint, please contact us first — we will respond within 30 days. If unsatisfied, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a> or call 1300 363 992.</p>
+        </div>
+      </div>
+
+      <div class="pp-section">
+        <div class="pp-section-head"><div class="pp-section-num">10</div> Contact Us</div>
+        <div class="pp-section-body">
+          <div class="contact-grid">
+            <div class="contact-item"><strong>Email</strong><a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a></div>
+            <div class="contact-item"><strong>Mail</strong>PO Box 19, Narangba QLD 4504</div>
+            <div class="contact-item"><strong>Phone</strong><a href="tel:0493013971">0493 013 971</a></div>
+          </div>
+          <p style="margin-top:16px; font-size:0.88rem; color:var(--text-light);">This Privacy Policy may be updated from time to time. The current version will always be published on our website with the date of last update noted above.</p>
+        </div>
+      </div>
+
+    </div><!-- /panel-1 -->
+  </div><!-- /tab-panels -->
+</div><!-- /page-wrap -->
+
+<footer>
+  Copyright &copy; 2026 <a href="https://ultimaterefunds.com.au/index.html">Ultimate Refunds</a>. All rights reserved.
 </footer>
+
+<script>
+  function switchTab(index, btn) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', i === index);
+      b.setAttribute('aria-selected', i === index);
+    });
+    document.querySelectorAll('.tab-panel').forEach((p, i) => {
+      p.classList.toggle('active', i === index);
+    });
+  }
+</script>
 
 </body>
 </html>
