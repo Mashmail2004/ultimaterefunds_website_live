@@ -553,7 +553,37 @@ var et_pb_box_shadow_elements = [];
 
 				} )( grecaptcha );
 			</script>
-			</body>
+			
+<style>
+.et_pb_toggle_title:before { display:none !important; }
+.ur-chevron {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #999;
+  border-bottom: 2px solid #999;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+.et_pb_toggle_open .ur-chevron {
+  transform: translateY(-50%) rotate(-135deg);
+  border-color: #444;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.et_pb_toggle_title').forEach(function(title) {
+    var span = document.createElement('span');
+    span.className = 'ur-chevron';
+    title.style.position = 'relative';
+    title.appendChild(span);
+  });
+});
+</script>
+</body>
 
 <!-- Mirrored from ultimaterefunds.com.au/faq/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Mar 2022 05:38:00 GMT -->
 </html>
