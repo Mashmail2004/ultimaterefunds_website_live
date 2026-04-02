@@ -6,281 +6,124 @@
 <title>Terms & Conditions | Ultimate Refunds</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy: #1a2a4a;
-    --navy-mid: #223355;
     --gold: #c9a84c;
     --white: #ffffff;
     --offwhite: #f4f4f4;
-    --text: #333333;
+    --text: #333;
     --text-light: #666;
     --border: #ddd;
     --shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
+  body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
 
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: var(--offwhite);
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* ── NAV — matches homepage ── */
+  /* ── NAV ── */
   nav {
-    background: var(--navy);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 76px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: var(--navy); padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px; position: sticky; top: 0; z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.20);
   }
-  nav .logo img {
-    height: 52px;
-    display: block;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 4px;
-  }
+  nav .logo img { height: 52px; display: block; }
+  nav ul { list-style: none; display: flex; gap: 4px; }
   nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 3px;
-    transition: background 0.18s, color 0.18s;
-    letter-spacing: 0.02em;
+    color: var(--white); text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; padding: 8px 16px;
+    border-radius: 3px; transition: background 0.18s; letter-spacing: 0.02em;
   }
   nav ul li a:hover { background: rgba(255,255,255,0.12); }
   nav ul li a.active { background: var(--gold); color: var(--navy); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--white); border-radius: 2px; }
 
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    padding: 4px;
+  /* ── HERO BANNER with photo ── */
+  .hero {
+    position: relative; height: 220px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
   }
-  .nav-toggle span {
-    display: block; width: 26px; height: 3px;
-    background: var(--white); border-radius: 2px;
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/5-used.jpg') center center / cover no-repeat;
+    transform: scale(1.05);
   }
-
-  /* ── PAGE HEADING — plain, like other pages ── */
-  .page-heading {
-    text-align: center;
-    padding: 40px 24px 32px;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-  }
-  .page-heading h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 900;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+  .hero-overlay { position: absolute; inset: 0; background: rgba(20,35,65,0.55); }
+  .hero h1 {
+    position: relative; z-index: 1; color: var(--white);
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
   }
 
-  /* ── MAIN WRAPPER ── */
-  .page-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 36px 24px 80px;
-  }
+  /* ── PAGE CONTENT ── */
+  .page-wrap { max-width: 900px; margin: 0 auto; padding: 36px 24px 80px; }
 
   /* ── TABS ── */
-  .tab-nav {
-    display: flex;
-    border-bottom: 3px solid var(--navy);
-  }
+  .tab-nav { display: flex; border-bottom: 3px solid var(--navy); }
   .tab-btn {
-    flex: 1;
-    background: #dde2ea;
-    border: none;
-    padding: 15px 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--navy);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    position: relative;
-    top: 3px;
-    outline: none;
+    flex: 1; background: #dde2ea; border: none;
+    padding: 15px 24px; font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--navy); cursor: pointer;
+    transition: background 0.2s, color 0.2s; position: relative; top: 3px; outline: none;
   }
   .tab-btn:first-child { border-radius: 6px 0 0 0; }
   .tab-btn:last-child  { border-radius: 0 6px 0 0; }
   .tab-btn:hover { background: #c8d0dc; }
-  .tab-btn.active {
-    background: var(--navy);
-    color: var(--white);
-    border-top: 3px solid var(--gold);
-  }
+  .tab-btn.active { background: var(--navy); color: var(--white); border-top: 3px solid var(--gold); }
 
-  /* ── TAB PANELS ── */
-  .tab-panels {
-    background: var(--white);
-    border-radius: 0 0 10px 10px;
-    box-shadow: var(--shadow);
-  }
-  .tab-panel {
-    display: none;
-    padding: 40px 44px;
-    animation: fadeSlide 0.28s ease;
-  }
+  .tab-panels { background: var(--white); border-radius: 0 0 10px 10px; box-shadow: var(--shadow); }
+  .tab-panel { display: none; padding: 40px 44px; animation: fadeSlide 0.28s ease; }
   .tab-panel.active { display: block; }
-  @keyframes fadeSlide {
-    from { opacity: 0; transform: translateX(14px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
+  @keyframes fadeSlide { from { opacity:0; transform:translateX(14px); } to { opacity:1; transform:translateX(0); } }
 
-  /* ── CONTENT TYPOGRAPHY ── */
   .tab-panel h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.35rem;
-    font-weight: 900;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    margin-bottom: 28px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid var(--navy);
+    font-size: 1.2rem; font-weight: 900; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.07em;
+    margin-bottom: 28px; padding-bottom: 12px; border-bottom: 3px solid var(--navy);
   }
-  .tab-panel p {
-    font-size: 0.96rem;
-    line-height: 1.78;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
+  .tab-panel p { font-size: 0.96rem; line-height: 1.78; color: var(--text); margin-bottom: 14px; }
   .tab-panel a { color: var(--navy); text-decoration: underline; }
-  .tab-panel a:hover { color: var(--navy-mid); }
 
   /* ── CLAUSE CARDS ── */
   .clause {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: var(--offwhite);
-    border-left: 4px solid var(--navy);
-    border-radius: 0 6px 6px 0;
-    padding: 16px 20px;
-    margin-bottom: 12px;
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--offwhite); border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0; padding: 16px 20px; margin-bottom: 12px;
     transition: background 0.18s;
   }
   .clause:hover { background: #e8ecf2; }
-  .clause-num {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: var(--navy);
-    opacity: 0.45;
-    min-width: 28px;
-    line-height: 1;
-    padding-top: 3px;
-  }
+  .clause-num { font-size: 1.2rem; font-weight: 900; color: var(--navy); opacity: 0.45; min-width: 28px; padding-top: 3px; }
   .clause-text { font-size: 0.96rem; line-height: 1.75; color: var(--text); }
   .clause-text strong { color: var(--navy); }
   .clause-text a { color: var(--navy); text-decoration: underline; }
 
   /* ── PRIVACY SECTION CARDS ── */
-  .pp-meta {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin-bottom: 24px;
-    background: #eaedf2;
-    border-radius: 5px;
-    padding: 9px 14px;
-    display: inline-block;
-  }
-  .pp-section {
-    margin-bottom: 18px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
+  .pp-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 24px; background: #eaedf2; border-radius: 5px; padding: 9px 14px; display: inline-block; }
+  .pp-section { margin-bottom: 18px; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; }
   .pp-section-head {
-    background: var(--navy);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    padding: 11px 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    background: var(--navy); color: var(--white);
+    font-size: 0.88rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 11px 18px;
+    display: flex; align-items: center; gap: 12px;
   }
   .pp-section-num {
-    background: var(--white);
-    color: var(--navy);
-    font-size: 0.82rem;
-    font-weight: 900;
-    border-radius: 50%;
-    width: 24px; height: 24px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    background: var(--white); color: var(--navy); font-size: 0.82rem; font-weight: 900;
+    border-radius: 50%; width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .pp-section-body {
-    padding: 18px 20px;
-    font-size: 0.95rem;
-    line-height: 1.76;
-    color: var(--text);
-    background: var(--white);
-  }
+  .pp-section-body { padding: 18px 20px; font-size: 0.95rem; line-height: 1.76; color: var(--text); background: var(--white); }
   .pp-section-body ul { margin: 8px 0 4px 18px; }
   .pp-section-body ul li { margin-bottom: 5px; }
   .pp-section-body a { color: var(--navy); text-decoration: underline; }
 
-  /* ── CONTACT GRID ── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-    gap: 12px;
-    margin-top: 10px;
-  }
-  .contact-item {
-    background: var(--offwhite);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 13px 15px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  .contact-item strong {
-    display: block;
-    color: var(--navy);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 3px;
-  }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 12px; margin-top: 10px; }
+  .contact-item { background: var(--offwhite); border: 1px solid var(--border); border-radius: 6px; padding: 13px 15px; font-size: 0.9rem; line-height: 1.6; }
+  .contact-item strong { display: block; color: var(--navy); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
   .contact-item a { color: var(--navy); text-decoration: underline; }
 
-  /* ── FOOTER — matches homepage ── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.75);
-    text-align: center;
-    padding: 20px 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.84rem;
-  }
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
   footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
@@ -314,8 +157,10 @@
   </ul>
 </nav>
 
-<!-- PAGE HEADING -->
-<div class="page-heading">
+<!-- HERO with photo -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <h1>Terms &amp; Conditions</h1>
 </div>
 
@@ -323,62 +168,29 @@
 <div class="page-wrap">
 
   <div class="tab-nav" role="tablist">
-    <button class="tab-btn active" role="tab" aria-selected="true"  onclick="switchTab(0, this)">Terms &amp; Conditions</button>
-    <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(1, this)">Privacy Policy</button>
+    <button class="tab-btn active" role="tab" aria-selected="true"  onclick="switchTab(0,this)">Terms &amp; Conditions</button>
+    <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(1,this)">Privacy Policy</button>
   </div>
 
   <div class="tab-panels">
 
-    <!-- TAB 1: TERMS & CONDITIONS -->
+    <!-- TAB 1: T&C -->
     <div class="tab-panel active" id="panel-0">
       <h2>Terms &amp; Conditions</h2>
-
-      <div class="clause">
-        <div class="clause-num">1</div>
-        <div class="clause-text"><strong>Ultimate Refunds</strong> cannot disclose the source of your funds unless we have your signed authority.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">2</div>
-        <div class="clause-text"><strong>Ultimate Refunds</strong> fee is payable on all monies recovered, upon recovery of funds.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">3</div>
-        <div class="clause-text">The refund fees are to be paid from the client's unclaimed money claim. The client understands they will receive the balance deposited electronically to their nominated bank account. The client accepts they are responsible for providing correct information and that incorrect information may cause delays in receiving their unclaimed money.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">4</div>
-        <div class="clause-text">Once <a href="https://ultimaterefunds.com.au/authority-to-release.pdf">Authority to Release</a> is signed the claimant cannot withdraw from our services to recover the claim. Should the claimant withdraw from supplying relevant documents requested (within the client's ability) to complete the claim, you will still be liable to pay the recovery fee. Upon refusal to supply extra documents, <strong>Ultimate Refunds</strong> will give 7 days notice to the client, the client's file will be closed and payment of our fee will be required.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">5</div>
-        <div class="clause-text">Should suit be commenced or an attorney employed to enforce payment of the recovery fee pursuant of this agreement, the claimant agrees to pay such additional sum as the court may adjudge reasonable as attorney's fees in said suit.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">6</div>
-        <div class="clause-text"><strong>Ultimate Refunds</strong> accepts no responsibility for the accuracy, currency or completeness of any information provided via any correspondence and/or communications. The accuracy or reliability of the information provided is not guaranteed or warranted in any way and <strong>Ultimate Refunds</strong>, its agencies, representatives, subsidiaries and affiliates disclaim liability of any kind whatsoever, including &amp; without limitation, liability for accuracy, quality, performance, or reliability for a particular purpose arising out of the information provided.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">7</div>
-        <div class="clause-text">These Terms &amp; Conditions can be varied at any time by <strong>Ultimate Refunds</strong> upon the giving of 7 days notice in writing to the Client detailing such changes.</div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-num">8</div>
-        <div class="clause-text">If you are having any trouble getting hold of the requested identity documentation in your information pack, contact us via our <a href="https://ultimaterefunds.com.au/contact/index.html">Contact Page</a> to discuss alternatives.</div>
-      </div>
+      <div class="clause"><div class="clause-num">1</div><div class="clause-text"><strong>Ultimate Refunds</strong> cannot disclose the source of your funds unless we have your signed authority.</div></div>
+      <div class="clause"><div class="clause-num">2</div><div class="clause-text"><strong>Ultimate Refunds</strong> fee is payable on all monies recovered, upon recovery of funds.</div></div>
+      <div class="clause"><div class="clause-num">3</div><div class="clause-text">The refund fees are to be paid from the client's unclaimed money claim. The client understands they will receive the balance deposited electronically to their nominated bank account. The client accepts they are responsible for providing correct information and that incorrect information may cause delays in receiving their unclaimed money.</div></div>
+      <div class="clause"><div class="clause-num">4</div><div class="clause-text">Once <a href="https://ultimaterefunds.com.au/authority-to-release.pdf">Authority to Release</a> is signed the claimant cannot withdraw from our services to recover the claim. Should the claimant withdraw from supplying relevant documents requested (within the client's ability) to complete the claim, you will still be liable to pay the recovery fee. Upon refusal to supply extra documents, <strong>Ultimate Refunds</strong> will give 7 days notice to the client, the client's file will be closed and payment of our fee will be required.</div></div>
+      <div class="clause"><div class="clause-num">5</div><div class="clause-text">Should suit be commenced or an attorney employed to enforce payment of the recovery fee pursuant of this agreement, the claimant agrees to pay such additional sum as the court may adjudge reasonable as attorney's fees in said suit.</div></div>
+      <div class="clause"><div class="clause-num">6</div><div class="clause-text"><strong>Ultimate Refunds</strong> accepts no responsibility for the accuracy, currency or completeness of any information provided via any correspondence and/or communications. The accuracy or reliability of the information provided is not guaranteed or warranted in any way and <strong>Ultimate Refunds</strong>, its agencies, representatives, subsidiaries and affiliates disclaim liability of any kind whatsoever, including &amp; without limitation, liability for accuracy, quality, performance, or reliability for a particular purpose arising out of the information provided.</div></div>
+      <div class="clause"><div class="clause-num">7</div><div class="clause-text">These Terms &amp; Conditions can be varied at any time by <strong>Ultimate Refunds</strong> upon the giving of 7 days notice in writing to the Client detailing such changes.</div></div>
+      <div class="clause"><div class="clause-num">8</div><div class="clause-text">If you are having any trouble getting hold of the requested identity documentation in your information pack, contact us via our <a href="https://ultimaterefunds.com.au/contact/index.html">Contact Page</a> to discuss alternatives.</div></div>
     </div>
 
     <!-- TAB 2: PRIVACY POLICY -->
     <div class="tab-panel" id="panel-1">
       <h2>Privacy Policy</h2>
       <div class="pp-meta">Last updated: April 2026</div>
-
       <p>Your privacy is important to <strong>Ultimate Refunds</strong>. We are committed to handling your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
 
       <div class="pp-section">
@@ -415,27 +227,20 @@
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">3</div> Automated Decision-Making and AI Systems</div>
         <div class="pp-section-body">
-          <p>Ultimate Refunds currently uses and may in the future use automated systems and artificial intelligence (AI) tools to assist with:</p>
+          <p>Ultimate Refunds uses automated systems and AI tools to assist with:</p>
           <ul>
-            <li><strong>Lead filtering and prioritisation:</strong> Enquiries submitted via our website or received by phone or email may be assessed and prioritised using automated tools.</li>
-            <li><strong>Communication screening:</strong> Incoming emails and calls may be processed through AI-assisted systems to categorise, route or summarise communications for our team.</li>
-            <li><strong>Document processing:</strong> Submitted identity documents and claim forms may be processed using automated tools to assist with verification and data extraction.</li>
+            <li><strong>Lead filtering and prioritisation:</strong> Enquiries may be assessed and prioritised using automated tools.</li>
+            <li><strong>Communication screening:</strong> Emails and calls may be processed through AI-assisted systems to categorise and route communications.</li>
+            <li><strong>Document processing:</strong> Submitted documents may be processed using automated tools to assist with verification and data extraction.</li>
           </ul>
-          <p>These systems assist our team but do not make final decisions about your claim. All substantive decisions are made by a human representative. You have the right to request human review of any decision by contacting <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>.</p>
+          <p>These systems assist our team but do not make final decisions. All substantive decisions are made by a human representative. You have the right to request human review by contacting <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>.</p>
         </div>
       </div>
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">4</div> Disclosure of Your Personal Information</div>
         <div class="pp-section-body">
-          <p>We may disclose your personal information to:</p>
-          <ul>
-            <li>Government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO)</li>
-            <li>Our CRM and software providers (including Zoho Corporation)</li>
-            <li>Our legal advisors</li>
-            <li>Law enforcement where required by law</li>
-          </ul>
-          <p>We will not sell, rent or trade your personal information to any third party for marketing purposes.</p>
+          <p>We may disclose your personal information to government authorities and holding bodies (e.g. Queensland Public Trustee, ASIC, ATO), our CRM and software providers (including Zoho Corporation), our legal advisors, and law enforcement where required by law. We will not sell, rent or trade your personal information for marketing purposes.</p>
         </div>
       </div>
 
@@ -448,78 +253,51 @@
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">6</div> Data Retention</div>
-        <div class="pp-section-body">
-          <p>We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes and enforce our agreements. Once your matter is concluded and retention obligations are met, your information will be securely destroyed or de-identified.</p>
-        </div>
+        <div class="pp-section-body"><p>We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes and enforce our agreements. Once your matter is concluded, your information will be securely destroyed or de-identified.</p></div>
       </div>
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">7</div> Securing Your Data</div>
-        <div class="pp-section-body">
-          <p>Ultimate Refunds takes reasonable technical and organisational measures to protect your personal information from loss, misuse, unauthorised access or disclosure. In the event of a data breach likely to cause serious harm, we will notify the OAIC and affected individuals in accordance with the Notifiable Data Breaches scheme.</p>
-        </div>
+        <div class="pp-section-body"><p>Ultimate Refunds takes reasonable technical and organisational measures to protect your personal information. In the event of a data breach likely to cause serious harm, we will notify the OAIC and affected individuals in accordance with the Notifiable Data Breaches scheme.</p></div>
       </div>
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">8</div> Your Rights</div>
         <div class="pp-section-body">
-          <p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to:</p>
-          <ul>
-            <li>Access and correct your personal information</li>
-            <li>Request human review of any automated decision</li>
-            <li>Make a complaint about how we have handled your information</li>
-          </ul>
+          <p>Under the <em>Privacy Act 1988</em> (Cth), you have the right to access and correct your personal information, request human review of any automated decision, and make a complaint about how we have handled your information.</p>
         </div>
       </div>
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">9</div> Complaints</div>
-        <div class="pp-section-body">
-          <p>If you have a complaint, please contact us first — we will respond within 30 days. If unsatisfied, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a> or call 1300 363 992.</p>
-        </div>
+        <div class="pp-section-body"><p>Please contact us first — we will respond within 30 days. If unsatisfied, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a> or call 1300 363 992.</p></div>
       </div>
 
       <div class="pp-section">
         <div class="pp-section-head"><div class="pp-section-num">10</div> Contact Us</div>
         <div class="pp-section-body">
           <div class="contact-grid">
-            <div class="contact-item">
-              <strong>Email</strong>
-              <a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a>
-            </div>
-            <div class="contact-item">
-              <strong>Mail</strong>
-              PO Box 19, Narangba QLD 4504
-            </div>
-            <div class="contact-item">
-              <strong>Phone</strong>
-              <a href="tel:0493013971">0493 013 971</a>
-            </div>
+            <div class="contact-item"><strong>Email</strong><a href="mailto:admin@ultimaterefunds.com.au">admin@ultimaterefunds.com.au</a></div>
+            <div class="contact-item"><strong>Mail</strong>PO Box 19, Narangba QLD 4504</div>
+            <div class="contact-item"><strong>Phone</strong><a href="tel:0493013971">0493 013 971</a></div>
           </div>
-          <p style="margin-top:16px; font-size:0.88rem; color:var(--text-light);">This Privacy Policy may be updated from time to time. The current version will always be published on our website with the date of last update noted above.</p>
+          <p style="margin-top:14px;font-size:0.88rem;color:var(--text-light);">This Privacy Policy may be updated from time to time. The current version will always be published on our website.</p>
         </div>
       </div>
+    </div>
 
-    </div><!-- /panel-1 -->
-  </div><!-- /tab-panels -->
-</div><!-- /page-wrap -->
+  </div>
+</div>
 
-<!-- FOOTER -->
 <footer>
   Copyright &copy; 2026 <a href="https://ultimaterefunds.com.au/index.html">Ultimate Refunds</a>. All rights reserved.
 </footer>
 
 <script>
   function switchTab(index, btn) {
-    document.querySelectorAll('.tab-btn').forEach((b, i) => {
-      b.classList.toggle('active', i === index);
-      b.setAttribute('aria-selected', i === index);
-    });
-    document.querySelectorAll('.tab-panel').forEach((p, i) => {
-      p.classList.toggle('active', i === index);
-    });
+    document.querySelectorAll('.tab-btn').forEach((b,i) => { b.classList.toggle('active', i===index); b.setAttribute('aria-selected', i===index); });
+    document.querySelectorAll('.tab-panel').forEach((p,i) => { p.classList.toggle('active', i===index); });
   }
 </script>
-
 </body>
 </html>
