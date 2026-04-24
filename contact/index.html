@@ -18,7 +18,7 @@
     }
     body { font-family: Arial, Helvetica, sans-serif; background: var(--offwhite); color: var(--text); min-height: 100vh; }
 
-    /* ── NAV — white, matching homepage ── */
+    /* ── NAV ── */
     nav {
       background: var(--white);
       padding: 0 40px;
@@ -56,10 +56,10 @@
     }
     .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
 
-    /* ── HERO BANNER ── */
+    /* ── HERO BANNER — fullscreen with parallax ── */
     .hero {
       position: relative;
-      height: 220px;
+      min-height: 520px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -67,27 +67,47 @@
     }
     .hero-bg {
       position: absolute;
-      inset: 0;
+      top: -30%;
+      left: 0;
+      right: 0;
+      height: 160%;
       background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/contact-5-used.jpg') center center / cover no-repeat;
-      transform: scale(1.05);
-      transition: transform 8s ease;
+      will-change: transform;
     }
-    .hero:hover .hero-bg { transform: scale(1.0); }
     .hero-overlay { position: absolute; inset: 0; background: rgba(20,35,65,0.55); }
-    .hero h1 {
+    .hero-content {
       position: relative;
       z-index: 1;
+      text-align: center;
+      padding: 0 24px;
+      animation: slideDown 0.7s ease both;
+    }
+    .hero-content h1 {
       color: var(--white);
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-align: center;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      animation: slideDown 0.6s ease both;
+      letter-spacing: 0.12em;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+    }
+    .hero-content p {
+      color: rgba(255,255,255,0.85);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+    .hero-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 14px auto 0;
+      border-radius: 2px;
     }
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-18px); }
+      from { opacity: 0; transform: translateY(-22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -97,40 +117,50 @@
       margin: 0 auto;
       padding: 40px 24px 80px;
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 300px 1fr;
       gap: 32px;
       align-items: start;
     }
 
-    /* ── CONTACT DETAILS CARD — slides in from left ── */
+    /* ── CONTACT DETAILS — with background photo ── */
     .contact-details {
-      background: var(--white);
       border-radius: 10px;
-      box-shadow: var(--shadow);
-      padding: 28px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+      padding: 32px 26px;
       animation: slideInLeft 0.5s ease both;
+      position: relative;
+      overflow: hidden;
+      background: url('https://ultimaterefunds.com.au/wp-content/uploads/2022/01/contact-1-bg-overlay.jpg') center center / cover no-repeat;
     }
+    .contact-details::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(12,22,52,0.84);
+      border-radius: 10px;
+    }
+    .contact-details > * { position: relative; z-index: 1; }
     @keyframes slideInLeft {
       from { opacity: 0; transform: translateX(-30px); }
       to   { opacity: 1; transform: translateX(0); }
     }
     .contact-details h2 {
-      font-size: 0.95rem; font-weight: 900; color: var(--navy);
+      font-size: 0.95rem; font-weight: 900; color: var(--white);
       text-transform: uppercase; letter-spacing: 0.07em;
-      margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid var(--navy);
+      margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid var(--gold);
     }
-    .contact-details p { font-size: 0.87rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
-    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 0.92rem; line-height: 1.5; }
+    .contact-details p { font-size: 0.87rem; color: rgba(255,255,255,0.72); line-height: 1.6; margin-bottom: 20px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 0.92rem; line-height: 1.5; color: var(--white); }
     .contact-item .icon {
-      width: 36px; height: 36px; background: var(--navy); border-radius: 50%;
+      width: 36px; height: 36px; background: var(--gold); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 0.9rem; color: var(--white);
+      flex-shrink: 0; font-size: 0.9rem; color: var(--navy);
     }
-    .contact-item a { color: var(--navy); text-decoration: none; }
-    .contact-item a:hover { text-decoration: underline; }
-    .contact-item strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 2px; }
+    .contact-item a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-item strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.55); margin-bottom: 2px; }
 
-    /* ── FORM CARD — slides in from right ── */
+    /* ── FORM CARD ── */
     .form-card {
       background: var(--white);
       border-radius: 10px;
@@ -184,7 +214,6 @@
       cursor: pointer !important; max-width: none !important;
     }
     .wfrm_fld_dpNn { display: none !important; }
-    /* Row spacing */
     .zcwf_row { margin-bottom: 14px !important; }
 
     /* ── FOOTER ── */
@@ -192,7 +221,7 @@
     footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* ── RESPONSIVE / MOBILE ── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       nav { padding: 0 16px; }
       nav ul {
@@ -204,15 +233,13 @@
       nav ul.open { display: flex; }
       nav ul li a { padding: 12px 20px; border-radius: 0; }
       .nav-toggle { display: flex; }
-
+      .hero { min-height: 300px; }
       .page-wrap {
         grid-template-columns: 1fr;
         padding: 24px 16px 60px;
         gap: 20px;
       }
       .form-card { padding: 22px 18px; }
-
-      /* Stack Zoho form labels above fields on mobile */
       .zcwf_lblLeft .zcwf_col_lab,
       .zcwf_lblLeft .zcwf_col_fld {
         width: 100% !important;
@@ -220,11 +247,6 @@
         display: block !important;
       }
       .zcwf_lblLeft .zcwf_col_lab { margin-bottom: 4px !important; }
-    }
-
-    @media (max-width: 400px) {
-      .hero { height: 160px; }
-      .contact-details, .form-card { padding: 18px 14px; }
     }
   </style>
 </head>
@@ -248,15 +270,19 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" id="heroBg"></div>
   <div class="hero-overlay"></div>
-  <h1>Contact Us</h1>
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>We're here to help you recover what's yours.</p>
+    <div class="hero-divider"></div>
+  </div>
 </div>
 
 <!-- CONTENT -->
 <div class="page-wrap">
 
-  <!-- LEFT: Contact details -->
+  <!-- LEFT: Contact details with background photo -->
   <aside class="contact-details">
     <h2>Contact Details</h2>
     <p>If you have any questions regarding the recovery process or unclaimed money in general, please don't hesitate to contact us.</p>
@@ -358,7 +384,6 @@
           document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled',true);
         }
         </script>
-        <!-- Visitor Tracking -->
         <script type='text/javascript' id='VisitorTracking'>
         var $zoho=$zoho||{};$zoho.salesiq=$zoho.salesiq||{widgetcode:'siqdfc17f9abc9f3cd756c0f0d2f2ce802a35ddd69036c54269db99693e125cbfde',values:{},ready:function(){}};
         var d=document;s=d.createElement('script');s.type='text/javascript';s.id='zsiqscript';s.defer=true;
@@ -386,6 +411,20 @@
 <footer>
   Copyright &copy; 2026 <a href="https://ultimaterefunds.com.au/index.html">Ultimate Refunds</a>. All rights reserved.
 </footer>
+
+<script>
+// Parallax scroll effect
+(function(){
+  var bg = document.getElementById('heroBg');
+  if(!bg) return;
+  function parallax() {
+    var scrolled = window.pageYOffset;
+    bg.style.transform = 'translateY(' + (scrolled * 0.38) + 'px)';
+  }
+  window.addEventListener('scroll', parallax, {passive:true});
+  parallax();
+})();
+</script>
 
 </body>
 </html>
