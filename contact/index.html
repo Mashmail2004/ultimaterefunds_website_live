@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Ultimate Refunds</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -216,6 +217,10 @@
     .wfrm_fld_dpNn { display: none !important; }
     .zcwf_row { margin-bottom: 14px !important; }
 
+    /* Turnstile widget spacing */
+    .turnstile-row { margin: 10px 0 16px !important; }
+    #formsubmit:disabled { opacity: 0.5 !important; cursor: not-allowed !important; }
+
     /* ── FOOTER ── */
     footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 20px 16px; font-size: 0.84rem; }
     footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
@@ -352,10 +357,21 @@
           </div>
         </div>
         <input type='text' style='display:none;' name='aG9uZXlwb3Q' value=''/>
+        <input type='hidden' name='cf-turnstile-response' id='cf-turnstile-response'>
+        <div class='zcwf_row turnstile-row'>
+          <div class='zcwf_col_lab'></div>
+          <div class='zcwf_col_fld'>
+            <div class='cf-turnstile'
+                 data-sitekey='0x4AAAAAADCVl0fjkp1_Ou73'
+                 data-callback='onTurnstileSuccess'
+                 data-expired-callback='onTurnstileExpired'>
+            </div>
+          </div>
+        </div>
         <div class='zcwf_row'>
           <div class='zcwf_col_lab'></div>
           <div class='zcwf_col_fld'>
-            <input type='submit' id='formsubmit' class='formsubmit zcwf_button' value='Send Message' title='Send Message'>
+            <input type='submit' id='formsubmit' class='formsubmit zcwf_button' value='Send Message' title='Send Message' disabled>
             <input type='reset' class='zcwf_button' name='reset' value='Reset' title='Reset'>
           </div>
         </div>
@@ -379,9 +395,20 @@
             var fieldObj=document.forms['WebToLeads5148237000000536003'][mndFileds[i]];
             if(fieldObj&&((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}
           }
+          if(!document.getElementById('cf-turnstile-response').value){
+            alert('Please complete the security check.');return false;
+          }
           trackVisitor5148237000000536003();
           if(!validateEmail5148237000000536003()){return false;}
           document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled',true);
+        }
+        function onTurnstileSuccess(token){
+          document.getElementById('cf-turnstile-response').value=token;
+          document.getElementById('formsubmit').removeAttribute('disabled');
+        }
+        function onTurnstileExpired(){
+          document.getElementById('cf-turnstile-response').value='';
+          document.getElementById('formsubmit').setAttribute('disabled',true);
         }
         </script>
         <script type='text/javascript' id='VisitorTracking'>
